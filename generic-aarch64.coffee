@@ -27,6 +27,15 @@ module.exports =
 
 	yocto:
 		machine: 'generic-aarch64'
-		image: 'resin-image'
+		image: 'balena-image'
+		fstype: 'balenaos-img'
 		version: 'yocto-dunfell'
 		deployArtifact: 'docker-image'
+
+	configuration:
+		config:
+			partition:
+				primary: 1
+			path: '/config.json'
+
+	initialization: commonImg.initialization

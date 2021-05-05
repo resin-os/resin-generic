@@ -1,6 +1,6 @@
 # Supported machines
 #MACHINE ?= "generic-aarch64.conf"
-#MACHINE ?= "generic-armv7hf.conf"
+#MACHINE ?= "generic-amd64.conf"
 
 # More info meta-balena/README.md
 #RESIN_CONNECTABLE ?= "1"

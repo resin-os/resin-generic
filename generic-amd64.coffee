@@ -7,9 +7,9 @@ RUN_CONTAINER = 'Run the resinOS container using <a href="https://github.com/res
 
 module.exports =
 	version: 1
-	slug: 'generic-armv7ahf'
-	name: 'Generic ARMv7-a HF'
-	arch: 'armv7hf'
+	slug: 'generic-amd64'
+	name: 'Generic AMD64 (x86-64)'
+	arch: 'amd64'
 	state: 'experimental'
 
 	instructions: [
@@ -19,14 +19,23 @@ module.exports =
 	]
 
 	gettingStartedLink:
-		windows: 'https://docs.resin.io/learn/getting-started/generic-armv7ahf/nodejs/#add-your-first-device'
-		osx: 'https://docs.resin.io/learn/getting-started/generic-armv7ahf/nodejs/#add-your-first-device'
-		linux: 'https://docs.resin.io/learn/getting-started/generic-armv7ahf/nodejs/#add-your-first-device'
+		windows: 'https://docs.resin.io/learn/getting-started/generic-amd64/nodejs/#add-your-first-device'
+		osx: 'https://docs.resin.io/learn/getting-started/generic-amd64/nodejs/#add-your-first-device'
+		linux: 'https://docs.resin.io/learn/getting-started/generic-amd64/nodejs/#add-your-first-device'
 
 	supportsBlink: false
 
 	yocto:
-		machine: 'generic-armv7ahf'
-		image: 'resin-image'
+		machine: 'generic-amd64'
+		image: 'balena-image'
+		fstype: 'balenaos-img'
 		version: 'yocto-dunfell'
 		deployArtifact: 'docker-image'
+
+	configuration:
+		config:
+			partition:
+				primary: 1
+			path: '/config.json'
+
+	initialization: commonImg.initialization
