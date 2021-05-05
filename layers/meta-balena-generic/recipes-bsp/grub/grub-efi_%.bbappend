@@ -6,7 +6,7 @@ SRC_URI += " \
 
 DEPENDS_append = " ca-certificates-native coreutils-native curl-native jq-native"
 
-GRUB_BUILDIN += " gcry_sha256 gcry_sha512 gcry_rijndael gcry_rsa"
+GRUB_BUILDIN += " gcry_sha256 gcry_sha512 gcry_rijndael gcry_rsa luks"
 
 do_configure_append_class-target() {
     if [ "x${SIGN_API}" = "x" ]; then

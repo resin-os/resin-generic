@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# shellcheck disable=SC1091
+. /usr/libexec/os-helpers-logging
+
+cryptsetup_enabled() {
+    # Flasher is not encrypted
+    if [ "$bootparam_flasher" = "true" ]; then
+        return 1
+    fi
+
+    # Check whether there are any LUKS partitions
+    if ! lsblk -nlo fstype | grep -q crypto_LUKS; then
+        return 1
+    fi
+
+    return 0
+}
+
+cryptsetup_run() {
+    for LUKS_UUID in $(lsblk -nlo uuid,fstype | grep crypto_LUKS | cut -d " " -f 1); do
+        if [ "x$bootparam_shell" = "x" ] && [ "x$bootparam_shell_debug" = "x" ]; then
+            cryptsetup luksOpen "UUID=${LUKS_UUID}" "luks-${LUKS_UUID}" 2>&1 | tee /dev/console
+        else
+            # tee this to /dev/console to see the prompt if stdout & stderr are redirected to file
+            cryptsetup luksOpen "UUID=${LUKS_UUID}" "luks-${LUKS_UUID}"
+        fi
+    done
+}
