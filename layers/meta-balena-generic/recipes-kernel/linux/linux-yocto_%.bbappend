@@ -318,7 +318,6 @@ BALENA_CONFIGS[watchdog] = " \
     CONFIG_ITCO_WDT=m \
 "
 
-
 #
 # Do not include debugging info in kernel and modules
 #
@@ -338,6 +337,13 @@ BALENA_CONFIGS[secureboot] = " \
     CONFIG_SECURITY_LOCKDOWN_LSM=y \
     CONFIG_SECURITY_LOCKDOWN_LSM_EARLY=y \
     CONFIG_SYSTEM_TRUSTED_KEYS="certs/balenaos.crt" \
+"
+
+BALENA_CONFIGS_append = " dmcrypt"
+
+BALENA_CONFIGS[dmcrypt] = " \
+    CONFIG_CRYPTO_XTS=y \
+    CONFIG_DM_CRYPT=y \
 "
 
 #
