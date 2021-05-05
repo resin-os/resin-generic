@@ -1,4 +1,4 @@
-do_install_append () {
+do_install_append_generic-amd64-fde () {
     if [ "x${SIGN_API}" = "x" ]; then
         return 0
     fi

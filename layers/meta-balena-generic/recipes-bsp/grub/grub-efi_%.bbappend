@@ -38,6 +38,14 @@ do_mkimage() {
 }
 
 do_sign_efi() {
+    :
+}
+
+do_sign_efi_class-native() {
+    :
+}
+
+do_sign_efi_append_generic-amd64-fde () {
     if [ "x${SIGN_API}" = "x" ]; then
         return 0
     fi
@@ -53,10 +61,6 @@ do_sign_efi() {
     rm -f "${REQUEST_FILE}" "${RESPONSE_FILE}"
 
     mv "${EFI_APP}.signed" "${EFI_APP}"
-}
-
-do_sign_efi_class-native() {
-    :
 }
 
 addtask sign_efi after do_mkimage before do_install

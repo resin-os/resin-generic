@@ -14,7 +14,7 @@ COMPATIBLE_MACHINE_generic-amd64 ?= "generic-amd64"
 KBUILD_DEFCONFIG_generic-aarch64 ?= "defconfig"
 KBUILD_DEFCONFIG_generic-amd64 ?= "x86_64_defconfig"
 
-do_configure_append () {
+do_configure_append_generic-amd64-fde () {
     mkdir -p certs
     if [ "x${SIGN_API}" = "x" ]; then
         return 0
@@ -29,6 +29,10 @@ do_configure_append () {
 }
 
 do_sign () {
+    :
+}
+
+do_sign_append_generic-amd64-fde () {
     if [ "x${SIGN_API}" = "x" ]; then
         return 0
     fi
@@ -55,7 +59,7 @@ do_sign () {
 
 addtask sign before do_deploy after do_bundle_initramfs
 
-do_deploy_append() {
+do_deploy_append_generic-amd64-fde() {
     if [ "x${SIGN_API}" != "x" ]; then
         install -m 0644 ${B}/${KERNEL_OUTPUT_DIR}/${KERNEL_IMAGETYPE}.initramfs.sig ${DEPLOYDIR}/${KERNEL_IMAGETYPE}.sig
     fi
