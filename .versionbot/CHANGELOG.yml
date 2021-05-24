@@ -1,4 +1,23 @@
 - commits:
+    - subject: Add balena-yocto-scripts upstream source
+      hash: ae2338e2d433d6f372abc8940a29d0498a7af90c
+      body: >
+        This allows to add nested changelogs from the balena-yocto-scripts
+        repository
+
+        from version >= 1.14.1
+      footer:
+        Change-type: patch
+        change-type: patch
+        Changelog-entry: Add balena-yocto-scripts upstream source
+        changelog-entry: Add balena-yocto-scripts upstream source
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 2.74.0+rev3
+  date: 2021-05-24T11:05:49.636Z
+- commits:
     - subject: Remove unused dependent-devices folder
       hash: 0c28a070872b12e6f97bb5d8c5f5bdc507a22c3a
       body: |
