@@ -1,4 +1,19 @@
 - commits:
+    - subject: Deploy balenaOS AMI during build
+      hash: 80f2787262f278535d39ffe355d1eea6fb836ac8
+      body: ''
+      footer:
+        Changelog-Entry: Deploy balenaOS AMI during build
+        changelog-entry: Deploy balenaOS AMI during build
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 2.79.6+rev1
+  date: 2021-06-10T21:21:57.834Z
+- commits:
     - subject: Remove unused dependent-devices folder
       hash: 0c28a070872b12e6f97bb5d8c5f5bdc507a22c3a
       body: |

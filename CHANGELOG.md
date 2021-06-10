@@ -1,6 +1,11 @@
 Change log
 -----------
 
+# v2.79.6+rev1
+## (2021-06-10)
+
+* Deploy balenaOS AMI during build [Michal Toman]
+
 # v2.74.0+rev2
 ## (2021-05-13)
 
