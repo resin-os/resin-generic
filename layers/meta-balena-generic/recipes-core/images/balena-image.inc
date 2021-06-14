@@ -23,4 +23,5 @@ BALENA_BOOT_PARTITION_FILES_append_generic-amd64 = " \
 # Increase image rootfs size to accomodate more drivers and functionality in generic images
 IMAGE_ROOTFS_SIZE = "1048576"
 
-IMAGE_INSTALL_append = " cryptsetup e2fsprogs-mke2fs efibootmgr lvm2-udevrules tpm2-tools"
+IMAGE_INSTALL_append = " e2fsprogs-mke2fs efibootmgr"
+IMAGE_INSTALL_append_generic-amd64-fde = " cryptsetup libtss2-tcti-device lvm2-udevrules tpm2-tools"

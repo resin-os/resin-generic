@@ -13,5 +13,12 @@ PACKAGES_append = " \
     "
 
 SUMMARY_initramfs-module-cryptsetup = "Unlock encrypted partitions"
-RDEPENDS_initramfs-module-cryptsetup = "${PN}-base cryptsetup lvm2-udevrules os-helpers-logging"
+RDEPENDS_initramfs-module-cryptsetup = " \
+    ${PN}-base \
+    cryptsetup \
+    libtss2-tcti-device \
+    lvm2-udevrules \
+    os-helpers-logging \
+    tpm2-tools \
+"
 FILES_initramfs-module-cryptsetup = "/init.d/72-cryptsetup"

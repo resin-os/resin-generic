@@ -18,12 +18,24 @@ cryptsetup_enabled() {
 }
 
 cryptsetup_run() {
+    EFI_MOUNT_DIR="/efi"
+    mkdir "$EFI_MOUNT_DIR"
+    mount /dev/disk/by-partlabel/balena-efi "$EFI_MOUNT_DIR"
+
+    PASSPHRASE_FILE=/balena-luks.pwd
+    tpm2_rsadecrypt -c "$EFI_MOUNT_DIR/balena-luks.ctx" -o "$PASSPHRASE_FILE" "$EFI_MOUNT_DIR/balena-luks.enc"
+
     for LUKS_UUID in $(lsblk -nlo uuid,fstype | grep crypto_LUKS | cut -d " " -f 1); do
+        CMD="cryptsetup luksOpen --key-file $PASSPHRASE_FILE UUID=${LUKS_UUID} luks-${LUKS_UUID}"
         if [ "x$bootparam_shell" = "x" ] && [ "x$bootparam_shell_debug" = "x" ]; then
-            cryptsetup luksOpen "UUID=${LUKS_UUID}" "luks-${LUKS_UUID}" 2>&1 | tee /dev/console
+            # tee this to /dev/console to see the prompt when stdout & stderr are redirected to file
+            $CMD 2>&1 | tee /dev/console
         else
-            # tee this to /dev/console to see the prompt if stdout & stderr are redirected to file
-            cryptsetup luksOpen "UUID=${LUKS_UUID}" "luks-${LUKS_UUID}"
+            $CMD
         fi
     done
+
+    rm -f "$PASSPHRASE_FILE"
+    umount "$EFI_MOUNT_DIR"
+    rmdir "$EFI_MOUNT_DIR"
 }
