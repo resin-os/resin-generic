@@ -7,6 +7,7 @@ BALENA_IMAGE_BOOTLOADER = "grub-efi"
 
 BALENA_BOOT_PARTITION_FILES = " \
     grub.cfg_internal:/EFI/BOOT/grub.cfg \
+    grub.cfg_internal.sig:/EFI/BOOT/grub.cfg.sig \
     grubenv:/EFI/BOOT/grubenv \
     grub_extraenv:/EFI/BOOT/grub_extraenv \
     "
