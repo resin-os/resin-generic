@@ -1,4 +1,19 @@
 - commits:
+    - subject: 'balena-image: add linux-firmware-iwlwifi to generic-amd64'
+      hash: f76751da79add17f7254c96b3fa5ff1d8b357f84
+      body: |
+        This adds firmware for Intel wireless chipsets supported by the iwlwifi
+        driver. Tested with AX200 chipset.
+      footer:
+        Changelog-entry: 'balena-image: add linux-firmware-iwlwifi to generic-amd64'
+        changelog-entry: 'balena-image: add linux-firmware-iwlwifi to generic-amd64'
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.74.0+rev5
+  date: 2021-07-01T20:38:23.506Z
+- commits:
     - subject: 'meta-balena-generic: default to linux v5.10'
       hash: 850aee7cb1e23276760aa0a03241cd300b2b40a4
       body: ''

@@ -1,6 +1,11 @@
 Change log
 -----------
 
+# v2.74.0+rev5
+## (2021-07-01)
+
+* balena-image: add linux-firmware-iwlwifi to generic-amd64 [Joseph Kogut]
+
 # v2.74.0+rev4
 ## (2021-06-10)
 
